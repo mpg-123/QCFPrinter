@@ -1,0 +1,279 @@
+*%  stdschem.gdl - this file contains templates that define all MS standard keywords
+*%  and constructs that appear in GPD and GDL files.
+
+*PreCompiled:  TRUE
+
+*Include: "stddtype.gdl"
+
+*% ==================
+*%  ==== Base Attributes  ====
+*% ==================
+
+*Template:  DISPLAY_STRING
+{
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_CODEPAGE_STRING
+    *Virtual:  TRUE
+}
+
+*Template:  ANSI_STRING
+{
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_NORMAL_STRING
+    *Virtual:  TRUE
+}
+
+*Template:  DEF_CP_STRING
+{
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_DEFAULT_CODEPAGE_STRING
+    *Virtual:  TRUE
+}
+
+*Template:  PRINTRATE
+{
+    *Name: "*PrintRate"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_POS_INTEGER
+}
+
+*IgnoreBlock:  Template:  PRINTRATEUNIT
+{    *%  defined in stdschema_ext.gdl
+    *Name: "*PrintRateUnit"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_PRINTRATEUNIT
+}
+
+*Template:  DRAFTQUALITYSETTINGS
+{
+    *Type:  ATTRIBUTE
+    *Name: "*DraftQualitySettings"
+    *ValueType:  DT_ONE_OR_LIST_OF_DT_QUALNAME
+}
+
+*Template:  BETTERQUALITYSETTINGS
+{
+    *Type:  ATTRIBUTE
+    *Name: "*BetterQualitySettings"
+    *ValueType:  DT_ONE_OR_LIST_OF_DT_QUALNAME
+}
+
+*Template:  BESTQUALITYSETTINGS
+{
+    *Type:  ATTRIBUTE
+    *Name: "*BestQualitySettings"
+    *ValueType:  DT_ONE_OR_LIST_OF_DT_QUALNAME
+}
+
+*Template:  DEFAULTQUALITY
+{
+    *Type:  ATTRIBUTE
+    *Name: "*DefaultQuality"
+    *ValueType:  EDT_QUALITYSETTING
+}
+
+*% ==================
+*%  ====  Feature Attributes  ====
+*% ==================
+
+
+*Template:  FEATURETYPE
+{
+    *Name:  "*FeatureType"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_FEATURETYPE
+}
+
+*Template:  DEFAULT_OPT
+{
+    *Name: "*DefaultOption"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_SYMBOL
+}
+
+*Template:  CONFLICTPRIORITY
+{
+    *Name:  "*ConflictPriority"
+    *Type:  ATTRIBUTE
+    *ValueType:  GPD_POS_INTEGER
+}
+
+*Template:  CONCEALFROMUI
+{
+    *Name:  "*ConcealFromUI?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*Template:  UPDATEQUALITYMACRO
+{
+    *Name:  "*UpdateQualityMacro?"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_BOOLEAN
+}
+
+*% ==================
+*%  ====  Option Attributes  ====
+*% ==================
+
+*Template:  CONSTRAINTS
+{
+    *Name: "*Constraints"
+    *Type:  ATTRIBUTE
+    *ValueType:  DT_ONE_OR_LIST_OF_DT_QUALNAME
+    *Additive: LEAST_TO_MOST_RECENT
+}
+
+*Template:  OPTIONID_VALUE
+{
+    *Inherits:  GPD_INTEGER
+    *MinValue: 257
+}
+*Template:  OPTIONID  *%  use limited to PageSize, InputSlot and Mediatype
+{       *%  OEM defined options only!
+    *Name:  "*OptionID"
+    *Type:  ATTRIBUTE
+    *ValueType:  OPTIONID_VALUE
+}
+
+*% ==================
+*%  ==== Feature/Option  Constructs  ====
+*% ==================
+
+
+*Template:  FEATURE       *%  define properties common to all Features
+{
+    *Name:  "*Feature"
+    *Type: CONSTRUCT
+    *Members:  (NAME, RC_NAME_ID, FEATURETYPE, DEFAULT_OPT,
+        CONCEALFROMUI,
+        CONFLICTPRIORITY, UPDATEQUALITYMACRO,
+        PRINTSCHEMAKEYWORDMAP
+        )
+        *%  note absence of member OPTION
+        *% this is added when FEATURE is specialized
+    *Production: AT_LEAST_ONE
+    {
+        *Member:  NAME {*Occurs:  1 }
+        *Member:  RC_NAME_ID {*Occurs:  1 }
+    }
+    *Virtual:  TRUE
+}
+
+
+
+
+*Template: OPTION
+{
+    *Name:  "*Option"
+    *Type: CONSTRUCT
+    *Members: (  NAME 
+     )
+
+    *Production: SATISFY_ALL
+    {
+        *Member:  CONSTRAINTS {*Occurs:  * }
+        *Member:  BIDIVALUE {*Occurs:  [0-1] }
+    }
+    *Virtual:  TRUE
+}
+
+*Template:  GENERIC_OPTION
+{
+    *Inherits: OPTION
+    *Instances:  <ANY>
+}
+
+*Template:  GENERIC_FEATURE
+{
+    *Inherits: FEATURE
+    *Members:  (GENERIC_OPTION )
+    *Instances:  <ANY>
+    *Production: SATISFY_ALL
+    {
+        *Member:  FEATURETYPE {*Occurs:  [1] }
+        *Member:  GENERIC_OPTION {*Occurs:  [1-256] }  *%  Devmode imposed limit
+    }
+}
+
+
+*% ==================
+*%  ==== Papersize Option  Construct  ====
+*% ==================
+
+
+
+*Template:  PAPERSIZE_OPTION
+{
+    *Inherits: OPTION
+    *Members:  (PAPER_SIZE_OPT_NAME,
+        PRINTABLEAREA, PRINTABLEORIGIN, CURSORORIGIN)
+    *%Instances:  <ANY>
+    *Virtual:  TRUE
+}
+
+
+*Template:  PAPERSIZE_FEATURE
+{
+    *Inherits: FEATURE
+    *Members:  (PAPERSIZE_OPTION)
+    *Instances:  PaperSize
+    *Production: SATISFY_ALL
+    {
+        *Member:  PAPERSIZE_OPTION {*Occurs:  [1-256] }  *%  Devmode imposed limit
+    }
+}
+
+
+*Template:  V_PREDEFINED_PAPERSIZE_OPTION  *%  define after Custom Papersize Option
+*%  so it has precedence.
+{
+    *Inherits: PAPERSIZE_OPTION
+    *Production: SATISFY_ALL
+    {
+        *Member:  PRINTABLEORIGIN {*Occurs:  [1-*] }
+        *Member:  PRINTABLEAREA {*Occurs:  [1-*] }
+    }
+    *Virtual:  TRUE
+}
+
+
+
+*% ==================
+*%  ====  ROOT Construct  ====
+*% ==================
+
+*Template:  ROOT
+{
+    *Type: CONSTRUCT
+    *Name:  "root"
+    *Instances:  <ANY>
+    *Members:  (MODELNAME, 
+        PRINTERTYPE, 
+        MAXCOPIES, FONTCARTSLOTS, PRINTRATE, PRINTRATEPPM
+         *%  PRINTRATEUNIT   defined in stdschema_ext.gdl
+        )
+    *Production: SATISFY_ALL
+    {       
+        *Member: PRINTERTYPE {*Occurs: 1 }
+        *Member: GPDSPECVERSION {*Occurs: 1 }
+        *Production: EXACTLY_ONE
+        {
+            *Production: SATISFY_ALL
+            {
+                *Member:  DRAFTQUALITYSETTINGS {*Occurs:  [0] }
+                *Member:  BETTERQUALITYSETTINGS {*Occurs:  [0] }
+                *Member:  BESTQUALITYSETTINGS {*Occurs:  [0] }
+                *Member:  DEFAULTQUALITY {*Occurs:  [0] }
+            }            
+        }
+    }
+}
+
+
+
+*Ifdef: Ignore
+*%============ suggested Templates for IHV BiDi Extensions =============
+
+*%============ end suggested Templates =============================
+*Endif: Ignore

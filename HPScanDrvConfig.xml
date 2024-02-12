@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<ToneMap>
+
+	<HP_ScanJet_Pro_3000_s3>
+		<lOverrideDefaultBrightness>128</lOverrideDefaultBrightness>
+		<lOverrideDefaultContrast>128</lOverrideDefaultContrast>
+		<lOverrideDefaultGamma>1580</lOverrideDefaultGamma>
+		<lOverrideDefaultHighlight>225</lOverrideDefaultHighlight>
+		<lOverrideDefaultShadow>5</lOverrideDefaultShadow>
+		<lOverrideDefaultThreshold>128</lOverrideDefaultThreshold>
+	</HP_ScanJet_Pro_3000_s3>
+	
+	<HP_ScanJet_Flow_7000_s3>
+		<lOverrideDefaultBrightness>128</lOverrideDefaultBrightness>
+	      <lOverrideDefaultContrast>128</lOverrideDefaultContrast>
+	      <lOverrideDefaultGamma>1580</lOverrideDefaultGamma>
+	      <lOverrideDefaultHighlight>221</lOverrideDefaultHighlight>
+	      <lOverrideDefaultShadow>5</lOverrideDefaultShadow>
+	      <lOverrideDefaultThreshold>128</lOverrideDefaultThreshold>
+	</HP_ScanJet_Flow_7000_s3>
+	
+	<HP_ScanJet_Flow_5000_s4>
+		<lOverrideDefaultBrightness>128</lOverrideDefaultBrightness>
+	      <lOverrideDefaultContrast>128</lOverrideDefaultContrast>
+	      <lOverrideDefaultGamma>1580</lOverrideDefaultGamma>
+	      <lOverrideDefaultHighlight>219</lOverrideDefaultHighlight>
+	      <lOverrideDefaultShadow>5</lOverrideDefaultShadow>
+	      <lOverrideDefaultThreshold>128</lOverrideDefaultThreshold>
+	</HP_ScanJet_Flow_5000_s4>
+
+</ToneMap>

@@ -1,0 +1,249 @@
+*GPDSpecVersion: "1.0"
+*GPDFileName: "hpfax_print.gpd"
+*Include: "StdNames.gpd"
+*ModelName: "HP PrinttoFax Driver"
+*MasterUnits: PAIR(1200, 1200)
+*ResourceDLL: "unires.dll"
+*PrinterType: PAGE
+*PrintRate: 8
+*PrintRateUnit: PPM
+*PrintRatePPM: 8
+
+*Feature: Orientation
+{
+    *rcNameID: =ORIENTATION_DISPLAY
+    *DefaultOption: PORTRAIT
+    *Option: PORTRAIT
+    {
+        *rcNameID: =PORTRAIT_DISPLAY
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.6
+            *Cmd: ""
+        }
+    }
+    *Option: LANDSCAPE_CC90
+    {
+        *rcNameID: =LANDSCAPE_DISPLAY
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.6
+            *Cmd: ""
+        }
+    }
+}
+*Feature: InputBin
+{
+    *ConcealFromUI?: TRUE
+    *rcNameID: =PAPER_SOURCE_DISPLAY
+    *DefaultOption: UPPER
+    *Option: UPPER
+    {
+        *rcNameID: =UPPER_TRAY_DISPLAY
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.9
+            *Cmd: ""
+        }
+    }
+}
+*Feature: Resolution
+{
+    *rcNameID: =RESOLUTION_DISPLAY
+    *DefaultOption: Option1
+    *ConcealFromUI?: TRUE
+    *Option: Option1
+    {
+        *Name: " Normal"
+        *DPI: PAIR(300, 300)
+        *TextDPI: PAIR(400, 400)
+        *MinStripBlankPixels: 32
+        EXTERN_GLOBAL: *StripBlanks: LIST(ENCLOSED,TRAILING)
+        *SpotDiameter: 100
+        *Command: CmdBeginRaster { *Cmd : "" }
+        *Command: CmdEndRaster { *Cmd : "" }
+        *Command: CmdSendBlockData { *Cmd : "" }
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.4
+            *Cmd: ""
+        }
+    }
+ 
+}
+*Feature: PaperSize
+{
+    *rcNameID: =PAPER_SIZE_DISPLAY
+    *DefaultOption: LETTER
+     *Option: LETTER
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+        *switch: Orientation
+        {
+            *case: PORTRAIT
+            {
+                *PrintableArea: PAIR(10200, 13200)
+                *PrintableOrigin: PAIR(0, 0)
+                *CursorOrigin: PAIR(0, 0)
+                *Command: CmdSelect
+                {
+                    *Order: DOC_SETUP.10
+                    *Cmd: ""
+                }
+            }
+            *case: LANDSCAPE_CC90
+            {
+                *PrintableArea: PAIR(10200, 13200)
+                *PrintableOrigin: PAIR(0, 0)
+                *CursorOrigin: PAIR(0, 13200)
+                *Command: CmdSelect
+                {
+                    *Order: DOC_SETUP.10
+                    *Cmd: ""
+                }
+            }
+        }
+    }
+    *Option: A4
+	{
+		*rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+		*switch: Orientation
+		{
+			*case: PORTRAIT
+			{
+				*PrintableArea: PAIR(9900, 14100)
+				*PrintableOrigin: PAIR(0, 0)
+				*CursorOrigin: PAIR(0, 0)
+				*Command: CmdSelect
+				{
+					*Order: DOC_SETUP.12
+					*Cmd: ""
+				}
+			}
+			*case: LANDSCAPE_CC90
+			{
+				*PrintableArea: PAIR(9900, 14100)
+				*PrintableOrigin: PAIR(0,0)
+				*CursorOrigin: PAIR(0, 14100)
+				*Command: CmdSelect
+				{
+					*Order: DOC_SETUP.12
+					*Cmd: ""
+				}
+			}
+		}
+	}
+	*Option: LEGAL
+	{
+		*rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+		*switch: Orientation
+		{
+			*case: PORTRAIT
+			{
+				*PrintableArea: PAIR(9000, 15500)
+				*PrintableOrigin: PAIR(400, 600)
+				*CursorOrigin: PAIR(180, 300)
+				*Command: CmdSelect
+				{
+					*Order: DOC_SETUP.12
+					*Cmd: ""
+				}
+			}
+			*case: LANDSCAPE_CC90
+			{
+				*PrintableArea: PAIR(9000, 15500)
+				*PrintableOrigin: PAIR(400, 900)
+				*CursorOrigin: PAIR(180, 16500)
+				*Command: CmdSelect
+				{
+					*Order: DOC_SETUP.12
+					*Cmd: ""
+				}
+			}
+		}
+	}
+
+}
+*Feature: MediaType
+{
+    *ConcealFromUI?: TRUE
+    *rcNameID: =MEDIA_TYPE_DISPLAY
+    *DefaultOption: STANDARD
+    *Option: STANDARD
+    {
+        *rcNameID: =PLAIN_PAPER_DISPLAY
+        *Command: CmdSelect
+        {
+            *Order: DOC_SETUP.14
+            *Cmd: ""
+        }
+    }
+}
+*Feature: ColorMode
+{
+    *rcNameID: =COLOR_PRINTING_MODE_DISPLAY
+    *HelpIndex: 12004
+    *DefaultOption: 24bpp
+    *Option: 24bpp
+    {
+        *rcNameID: =24BPP_DISPLAY
+        *DevNumOfPlanes: 0
+        *DevBPP: 0
+        *DrvBPP: 24
+        *IPCallbackID: 24
+        *Command: CmdEnableDRC { *Cmd : "" }
+        *PaletteSize: 256
+        *PaletteProgrammable? : TRUE
+        *Command: CmdDefinePaletteEntry { *Cmd : "" }
+        *Command: CmdSelectPaletteEntry { *Cmd : "" }
+        *Command: CmdSetSrcBmpWidth { *Cmd : "" }
+        *Command: CmdSelect
+        {
+            *Order: PAGE_SETUP.16
+            *Cmd: ""
+        }
+    }
+}
+
+*Command: CmdStartDoc
+{
+    *Order: DOC_SETUP.5
+    *Cmd: ""
+}
+*Command: CmdStartPage
+{
+    *Order: PAGE_SETUP.1
+    *Cmd: ""
+}
+*Command: CmdEndJob
+{
+    *Order: JOB_FINISH.1
+    *Cmd: ""
+}
+*Command: CmdCopies
+{
+    *Order: DOC_SETUP.11
+    *Cmd: ""
+}
+
+
+*RotateCoordinate?: TRUE
+*RotateRaster?: TRUE
+*RotateFont?: TRUE
+*TextCaps: LIST(TC_CR_90,TC_UA_ABLE)
+*MemoryUsage: LIST(FONT, RASTER, VECTOR)
+*CursorXAfterCR: AT_PRINTABLE_X_ORIGIN
+*BadCursorMoveInGrxMode: LIST(X_PORTRAIT,Y_LANDSCAPE)
+*XMoveThreshold: 0
+*YMoveThreshold: 0
+*XMoveUnit: 300
+*YMoveUnit: 300
+*EjectPageWithFF?: TRUE
+*OutputDataFormat: H_BYTE
+*OptimizeLeftBound?: TRUE
+*CursorXAfterSendBlockData: AT_GRXDATA_ORIGIN
+*CursorYAfterSendBlockData: AUTO_INCREMENT
+
+*Command: CmdCR { *Cmd : "" }
+*Command: CmdLF { *Cmd : "" }
+*Command: CmdFF { *Cmd : "" }

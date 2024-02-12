@@ -1,0 +1,82 @@
+[Version]
+Signature="$Windows NT$"
+Class=Image
+ClassGUID={6bdd1fc6-810f-11d0-bec7-08002be2092f}
+Provider=%Provider%
+; redundant but needed to pass Windows 10 infverif test
+CatalogFile=HPNullScan.CAT
+
+DriverVer=03/03/2020, 48.4.4527.0	
+;====================================================
+
+[DestinationDirs]
+; By default, files will be copied to \windows\system.
+DefaultDestDir=11
+32on64_CopyFiles=16425
+
+[ControlFlags]
+; Remove comment from this line if all devices are PnP.
+ExcludeFromSelect=*
+
+[Manufacturer]
+%Mfg%=Models,NTamd64.6,NTamd64.5.2,NTx86.6
+; Windows 2K is not supported
+[Models]
+;; ; No support for Windows 2000
+
+; Windows XP
+[Models.NTx86.6]
+HP Color LaserJet Pro M479 (NULL) = NullScanInstall, usb\Vid_03F0&Pid_c62a&mi_00
+HP Color LaserJet Pro M478f-9f (NULL) = NullScanInstall, usb\Vid_03F0&Pid_c52a&mi_00
+HP Smart Tank Plus 550 series (NULL) = NullScanInstall, usb\Vid_03F0&Pid_1A54&mi_00
+HP Smart Tank 510 series (NULL) = NullScanInstall, usb\Vid_03F0&Pid_1954&mi_00
+HP Smart Tank Plus 650 series (NULL) = NullScanInstall, usb\Vid_03F0&Pid_1C54&mi_00
+HP Smart Tank 610 series (NULL) = NullScanInstall, usb\Vid_03F0&Pid_1B54&mi_00
+HP LJ Pro M329 (NULL) = NullScanInstall, usb\Vid_03F0&Pid_df2a&mi_00
+HP LJ Pro M428M429 (NULL) = NullScanInstall, usb\Vid_03F0&Pid_c22a&mi_00
+HP LJ Pro M428fM429f (NULL) = NullScanInstall, usb\Vid_03F0&Pid_c32a&mi_00
+; Windows x64 Server 2003
+[Models.NTamd64.5.2]
+HP Color LaserJet Pro M479 (NULL) = NullScanInstall, usb\Vid_03F0&Pid_c62a&mi_00
+HP Color LaserJet Pro M478f-9f (NULL) = NullScanInstall, usb\Vid_03F0&Pid_c52a&mi_00
+HP Smart Tank Plus 550 series (NULL) = NullScanInstall, usb\Vid_03F0&Pid_1A54&mi_00
+HP Smart Tank 510 series (NULL) = NullScanInstall, usb\Vid_03F0&Pid_1954&mi_00
+HP Smart Tank Plus 650 series (NULL) = NullScanInstall, usb\Vid_03F0&Pid_1C54&mi_00
+HP Smart Tank 610 series (NULL) = NullScanInstall, usb\Vid_03F0&Pid_1B54&mi_00
+HP LJ Pro M329 (NULL) = NullScanInstall, usb\Vid_03F0&Pid_df2a&mi_00
+HP LJ Pro M428M429 (NULL) = NullScanInstall, usb\Vid_03F0&Pid_c22a&mi_00
+HP LJ Pro M428fM429f (NULL) = NullScanInstall, usb\Vid_03F0&Pid_c32a&mi_00
+; Windows x64
+[Models.NTamd64.6]
+HP Color LaserJet Pro M479 (NULL) = NullScanInstall, usb\Vid_03F0&Pid_c62a&mi_00
+HP Color LaserJet Pro M478f-9f (NULL) = NullScanInstall, usb\Vid_03F0&Pid_c52a&mi_00
+HP Smart Tank Plus 550 series (NULL) = NullScanInstall, usb\Vid_03F0&Pid_1A54&mi_00
+HP Smart Tank 510 series (NULL) = NullScanInstall, usb\Vid_03F0&Pid_1954&mi_00
+HP Smart Tank Plus 650 series (NULL) = NullScanInstall, usb\Vid_03F0&Pid_1C54&mi_00
+HP Smart Tank 610 series (NULL) = NullScanInstall, usb\Vid_03F0&Pid_1B54&mi_00
+HP LJ Pro M329 (NULL) = NullScanInstall, usb\Vid_03F0&Pid_df2a&mi_00
+HP LJ Pro M428M429 (NULL) = NullScanInstall, usb\Vid_03F0&Pid_c22a&mi_00
+HP LJ Pro M428fM429f (NULL) = NullScanInstall, usb\Vid_03F0&Pid_c32a&mi_00
+; *****************************************************************************************
+;           Windows XP (Whistler) and later
+; *****************************************************************************************
+
+[NullScanInstall]
+SUBCLASS=STILLIMAGE 
+DeviceType=1
+FeatureScore=FC
+CopyFiles=Nothing	
+AddReg=Nothing
+
+[NullScanInstall.Services]
+AddService = ,2;
+
+[SourceDisksFiles]
+
+[SourceDisksNames]
+
+[Nothing]
+
+[Strings]
+Provider="HP"
+Mfg="HP"

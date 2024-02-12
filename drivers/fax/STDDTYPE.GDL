@@ -1,0 +1,148 @@
+*%  stddtype.gdl - this file contains templates that define all MS standard datatypes
+*%  that appear in GPD and GDL files.
+
+*PreCompiled:  TRUE
+
+
+
+*% ==================
+*%  ====  define  DT_ONE_OR_LIST_OF_[ElementType]  ====
+*% ==================
+*%  DT_ONE_OR_LIST_OF_[ElementType]  allows the value to be a
+*%  single naked object of that [ElementType]
+*%  or any number of [ElementType] enclosed within a LIST()
+*%  Either type will appear in the Snapshot with a similar format so
+*%  Client code does not need to be aware of the 2 personalities.
+*% ==================
+
+*BlockMacro: DefineListDataType(=ElementType, =ElementTag)
+{
+    *Template:  DT_LIST_OF_=ElementType
+    {
+        *Inherits:  VDT_GENERIC_LIST
+        *ElementType:  =ElementType
+        *ElementTags: =ElementTag
+    }
+    *Template:  DT_LIST_OF_ONE_=ElementType
+    {
+        *Inherits:  VDT_GENERIC_LIST_OF_ONE
+        *ElementType:  =ElementType
+        *ElementTags: =ElementTag
+    }
+    *Template:  DT_ONE_OR_LIST_OF_=ElementType
+    {
+        *Type:  DATATYPE
+        *DataType:   MULTIPLE_PERSONALITY
+        *ElementType:  (DT_LIST_OF_=ElementType, DT_LIST_OF_ONE_=ElementType)
+        *ElementTags: (list_=ElementTag, one_=ElementTag)
+    }
+}
+*% ==================
+*%  === Enumerator types :  use prefix EDT ====
+*% ==================
+*Template:  EDT_BOOLEAN
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_BOOLEAN"
+    *EnumeratorList: (TRUE, FALSE)
+}
+
+*Template:  EDT_FEATURETYPE
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_FEATURETYPE"
+    *EnumeratorList: (PARAMETER_PROPERTY, DOC_PROPERTY, JOB_PROPERTY,
+        PRINTER_PROPERTY, SYNTHESIZED_PROPERTY)
+}
+*Template:  EDT_PRINTRATEUNIT
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_PRINTRATEUNIT"
+    *EnumeratorList: (PPM, CPS, LPM, IPM, LPS, IPS)
+}
+*Template:  EDT_QUALITYSETTING
+{
+    *Type:  DATATYPE
+    *DataType:   ENUMERATOR
+    *XMLDataType: "XML_QUALITYSETTING"
+    *EnumeratorList: (DRAFTQUALITY, BETTERQUALITY, BESTQUALITY)
+}
+
+*% ==================
+*%  === Filter types :  use prefix GPD ====
+*%  === these represent GPD defined types ====
+*% ==================
+
+*Template:  GPD_INTEGER
+{
+    *Type:  DATATYPE
+    *DataType:   FILTER_TYPE
+    *ElementType:  XSD_INT
+    *FilterTypeName: "HEX_OR_INT"
+}
+
+*Template:  GPD_POS_INTEGER
+{
+    *Inherits:  GPD_INTEGER
+    *MinValue: 1
+}
+
+*Template:  GPD_NONNEG_INTEGER
+{
+    *Inherits:  GPD_INTEGER
+    *MinValue: 0
+}
+
+*Template:  GPD_SYMBOL
+{
+    *Type:  DATATYPE
+    *DataType:   FILTER_TYPE
+    *ElementType:  XSD_STRING
+    *FilterTypeName: "SYMBOLNAME"
+}
+*Template:  GPD_COMMAND      *%  Only used to represent Command strings
+{
+    *Type:  DATATYPE
+    *DataType:   FILTER_TYPE
+    *ElementType:  XSD_BASE64
+    *FilterTypeName: "COMMAND_STRING"
+}
+
+*Template:  GPD_NORMAL_STRING  *%  ANSI string, no Unicode conversion
+{
+    *Type:  DATATYPE
+    *DataType:   FILTER_TYPE
+    *ElementType:  XSD_STRING
+    *FilterTypeName: "NORMAL_STRING"
+}
+*Template:  GPD_CODEPAGE_STRING       *%  ANSI string, convert to Unicode
+{
+    *Type:  DATATYPE
+    *DataType:   FILTER_TYPE
+    *ElementType:  XSD_STRING
+    *FilterTypeName: "CODEPAGE_STRING"
+}
+*Template:  GPD_DEFAULT_CODEPAGE_STRING  *%  ANSI string, convert to Unicode
+{
+    *Type:  DATATYPE
+    *DataType:   FILTER_TYPE
+    *ElementType:  XSD_STRING
+    *FilterTypeName: "DEFAULT_CODEPAGE_STRING"
+}
+*Template:  GPD_UNICODE_STRING  *%  string already in Unicode
+{
+    *Type:  DATATYPE
+    *DataType:   FILTER_TYPE
+    *ElementType:  XSD_STRING
+    *FilterTypeName: "UNICODE_STRING"
+}
+*Template:  GPD_BINARY_STRING  *%  Binary byte string, emit as Base64
+{
+    *Type:  DATATYPE
+    *DataType:   FILTER_TYPE
+    *ElementType:  XSD_BASE64
+    *FilterTypeName: "BINARY_STRING"
+}

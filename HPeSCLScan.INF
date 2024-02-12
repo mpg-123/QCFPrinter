@@ -1,0 +1,640 @@
+[Version]
+Signature="$Windows NT$"
+Class=Image
+ClassGUID={6bdd1fc6-810f-11d0-bec7-08002be2092f}
+Provider=%Provider%
+; redundant but needed to pass Windows 10 infverif test
+CatalogFile=HPEsclScan.CAT
+CatalogFile.NTX86=HPEsclScan.CAT
+CatalogFile.NTAMD64=HPEsclScan.CAT
+
+DriverVer=03/03/2020, 48.4.4527.0	
+;====================================================
+
+[DestinationDirs]
+; By default, files will be copied to \windows\system.
+DefaultDestDir=11
+32on64_CopyFiles=16425
+
+[ControlFlags]
+; Remove comment from this line if all devices are PnP.
+ExcludeFromSelect=*
+
+[Manufacturer]
+%Mfg%=Models,NTamd64.6,NTamd64.5.2,NTx86.6
+; Windows 2K is not supported
+[Models]
+;; ; No support for Windows 2000
+
+; Windows XP
+[Models.NTx86.6]
+"HP Color LaserJet Pro M479 (USB)" = DMR.USB.6, usb\Vid_03F0&Pid_c62a&mi_00
+"HP Color LaserJet Pro M479 (NET)" = DMR.NET.6, MF\Color_LaserJet_Pro_M479&WSD&IP_SCAN
+"HP Color LaserJet Pro M478f-9f (USB)" = DMR.USB.6, usb\Vid_03F0&Pid_c52a&mi_00
+"HP Color LaserJet Pro M478f-9f (NET)" = DMR.NET.6, MF\Color_LaserJet_Pro_M478f-9f&WSD&IP_SCAN
+"HP Smart Tank Plus 550 series (USB)" = DMR.USB.6, usb\Vid_03F0&Pid_1A54&mi_00
+"HP Smart Tank Plus 550 series (NET)" = DMR.NET.6, MF\Smart_Tank_Plus_550_series&WSD&IP_SCAN
+"HP Smart Tank 510 series (USB)" = DMR.USB.6, usb\Vid_03F0&Pid_1954&mi_00
+"HP Smart Tank 510 series (NET)" = DMR.NET.6, MF\Smart_Tank_510_series&WSD&IP_SCAN
+"HP Smart Tank Plus 650 series (USB)" = DMR.USB.6, usb\Vid_03F0&Pid_1C54&mi_00
+"HP Smart Tank Plus 650 series (NET)" = DMR.NET.6, MF\Smart_Tank_Plus_650_series&WSD&IP_SCAN
+"HP Smart Tank 610 series (USB)" = DMR.USB.6, usb\Vid_03F0&Pid_1B54&mi_00
+"HP Smart Tank 610 series (NET)" = DMR.NET.6, MF\Smart_Tank_610_series&WSD&IP_SCAN
+"HP LJ Pro M329 (USB)" = DMR.USB.6, usb\Vid_03F0&Pid_df2a&mi_00
+"HP LJ Pro M329 (NET)" = DMR.NET.6, MF\LaserJet_Pro_M329&WSD&IP_SCAN
+"HP LJ Pro M428M429 (USB)" = DMR.USB.6, usb\Vid_03F0&Pid_c22a&mi_00
+"HP LJ Pro M428M429 (NET)" = DMR.NET.6, MF\LaserJet_Pro_M428-M429&WSD&IP_SCAN
+"HP LJ Pro M428fM429f (USB)" = DMR.USB.6, usb\Vid_03F0&Pid_c32a&mi_00
+"HP LJ Pro M428fM429f (NET)" = DMR.NET.6, MF\LaserJet_Pro_M428f-M429f&WSD&IP_SCAN
+; Windows x64 Server 2003
+[Models.NTamd64.5.2]
+"HP Color LaserJet Pro M479 (USB)" = DMR.USB.5.2, usb\Vid_03F0&Pid_c62a&mi_00
+"HP Color LaserJet Pro M479 (NET)" = DMR.NET.5.2, MF\Color_LaserJet_Pro_M479&WSD&IP_SCAN
+"HP Color LaserJet Pro M478f-9f (USB)" = DMR.USB.5.2, usb\Vid_03F0&Pid_c52a&mi_00
+"HP Color LaserJet Pro M478f-9f (NET)" = DMR.NET.5.2, MF\Color_LaserJet_Pro_M478f-9f&WSD&IP_SCAN
+"HP Smart Tank Plus 550 series (USB)" = DMR.USB.5.2, usb\Vid_03F0&Pid_1A54&mi_00
+"HP Smart Tank Plus 550 series (NET)" = DMR.NET.5.2, MF\Smart_Tank_Plus_550_series&WSD&IP_SCAN
+"HP Smart Tank 510 series (USB)" = DMR.USB.5.2, usb\Vid_03F0&Pid_1954&mi_00
+"HP Smart Tank 510 series (NET)" = DMR.NET.5.2, MF\Smart_Tank_510_series&WSD&IP_SCAN
+"HP Smart Tank Plus 650 series (USB)" = DMR.USB.5.2, usb\Vid_03F0&Pid_1C54&mi_00
+"HP Smart Tank Plus 650 series (NET)" = DMR.NET.5.2, MF\Smart_Tank_Plus_650_series&WSD&IP_SCAN
+"HP Smart Tank 610 series (USB)" = DMR.USB.5.2, usb\Vid_03F0&Pid_1B54&mi_00
+"HP Smart Tank 610 series (NET)" = DMR.NET.5.2, MF\Smart_Tank_610_series&WSD&IP_SCAN
+"HP LJ Pro M329 (USB)" = DMR.USB.5.2, usb\Vid_03F0&Pid_df2a&mi_00
+"HP LJ Pro M329 (NET)" = DMR.NET.5.2, MF\LaserJet_Pro_M329&WSD&IP_SCAN
+"HP LJ Pro M428M429 (USB)" = DMR.USB.5.2, usb\Vid_03F0&Pid_c22a&mi_00
+"HP LJ Pro M428M429 (NET)" = DMR.NET.5.2, MF\LaserJet_Pro_M428-M429&WSD&IP_SCAN
+"HP LJ Pro M428fM429f (USB)" = DMR.USB.5.2, usb\Vid_03F0&Pid_c32a&mi_00
+"HP LJ Pro M428fM429f (NET)" = DMR.NET.5.2, MF\LaserJet_Pro_M428f-M429f&WSD&IP_SCAN
+; Windows x64
+[Models.NTamd64.6]
+"HP Color LaserJet Pro M479 (USB)" = DMR.USB.6, usb\Vid_03F0&Pid_c62a&mi_00
+"HP Color LaserJet Pro M479 (NET)" = DMR.NET.6, MF\Color_LaserJet_Pro_M479&WSD&IP_SCAN
+"HP Color LaserJet Pro M478f-9f (USB)" = DMR.USB.6, usb\Vid_03F0&Pid_c52a&mi_00
+"HP Color LaserJet Pro M478f-9f (NET)" = DMR.NET.6, MF\Color_LaserJet_Pro_M478f-9f&WSD&IP_SCAN
+"HP Smart Tank Plus 550 series (USB)" = DMR.USB.6, usb\Vid_03F0&Pid_1A54&mi_00
+"HP Smart Tank Plus 550 series (NET)" = DMR.NET.6, MF\Smart_Tank_Plus_550_series&WSD&IP_SCAN
+"HP Smart Tank 510 series (USB)" = DMR.USB.6, usb\Vid_03F0&Pid_1954&mi_00
+"HP Smart Tank 510 series (NET)" = DMR.NET.6, MF\Smart_Tank_510_series&WSD&IP_SCAN
+"HP Smart Tank Plus 650 series (USB)" = DMR.USB.6, usb\Vid_03F0&Pid_1C54&mi_00
+"HP Smart Tank Plus 650 series (NET)" = DMR.NET.6, MF\Smart_Tank_Plus_650_series&WSD&IP_SCAN
+"HP Smart Tank 610 series (USB)" = DMR.USB.6, usb\Vid_03F0&Pid_1B54&mi_00
+"HP Smart Tank 610 series (NET)" = DMR.NET.6, MF\Smart_Tank_610_series&WSD&IP_SCAN
+"HP LJ Pro M329 (USB)" = DMR.USB.6, usb\Vid_03F0&Pid_df2a&mi_00
+"HP LJ Pro M329 (NET)" = DMR.NET.6, MF\LaserJet_Pro_M329&WSD&IP_SCAN
+"HP LJ Pro M428M429 (USB)" = DMR.USB.6, usb\Vid_03F0&Pid_c22a&mi_00
+"HP LJ Pro M428M429 (NET)" = DMR.NET.6, MF\LaserJet_Pro_M428-M429&WSD&IP_SCAN
+"HP LJ Pro M428fM429f (USB)" = DMR.USB.6, usb\Vid_03F0&Pid_c32a&mi_00
+"HP LJ Pro M428fM429f (NET)" = DMR.NET.6, MF\LaserJet_Pro_M428f-M429f&WSD&IP_SCAN
+
+;***************************************************************************************************************************
+;                    WIA Registration
+;***************************************************************************************************************************
+[DMR.Usb.6]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+Capabilities=0x31
+DeviceSubType=0x2
+FeatureScore=00
+Events=DMR.Events
+DeviceData=DMR.DeviceData.WIA
+AddReg=DMR.UsbReg,DMR.WIAReg,DMR.EvtReg
+CopyFiles=DMR.CpyFiles.WIA2
+RegisterDlls=DMR.RegisterDlls.WIA2
+ICMProfiles="sRGB Color Space Profile.icm"
+
+[DMR.Usb.6.ntamd64]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+Capabilities=0x31
+DeviceSubType=0x2
+FeatureScore=00
+
+Events=DMR.Events
+DeviceData=DMR.DeviceData.WIA
+AddReg=DMR.UsbReg,DMR.WIAReg,DMR.EvtReg
+CopyFiles=DMR.CpyFiles.WIA2x64,32on64_CopyFiles
+RegisterDlls=DMR.RegisterDlls.WIA2x64
+ICMProfiles="sRGB Color Space Profile.icm"
+
+
+[DMR.Usb.5.2.ntamd64]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+Capabilities=0x30
+DeviceSubType=0x2
+
+FeatureScore=00
+
+Events=DMR.Events
+DeviceData=DMR.DeviceData.WIA
+AddReg=DMR.UsbReg,DMR.WIAReg,DMR.EvtReg
+CopyFiles=DMR.CpyFiles.WIAx64,32on64_CopyFiles
+RegisterDlls=DMR.RegisterDlls.WIAx64
+ICMProfiles="sRGB Color Space Profile.icm"
+
+[DMR.Net.6]
+Include=sti.inf
+Needs=STI.SerialSection
+SubClass=StillImage
+DeviceType=1
+Capabilities=0x30
+DeviceSubType=0x2
+
+FeatureScore=00
+
+DeviceData=DMR.DeviceData.WIA
+AddReg=DMR.NetReg,DMR.WIAReg2
+CopyFiles=DMR.CpyFiles.WIA2
+RegisterDlls=DMR.RegisterDlls.WIA2
+ICMProfiles="sRGB Color Space Profile.icm"
+PortSelect=NO
+
+;; [DMR.Net.NTWIA.HW]
+
+[DMR.Net.6.ntamd64]
+Include=sti.inf
+Needs=STI.SerialSection
+SubClass=StillImage
+DeviceType=1
+Capabilities=0x30
+DeviceSubType=0x2
+
+FeatureScore=00
+
+DeviceData=DMR.DeviceData.WIA
+AddReg=DMR.NetReg,DMR.WIAReg2
+CopyFiles=DMR.CpyFiles.WIA2x64,32on64_CopyFiles
+RegisterDlls=DMR.RegisterDlls.WIA2x64
+ICMProfiles="sRGB Color Space Profile.icm"
+PortSelect=NO
+
+[DMR.Net.5.2.ntamd64]
+Include=sti.inf
+Needs=STI.SerialSection
+SubClass=StillImage
+DeviceType=1
+Capabilities=0x30
+DeviceSubType=0x2
+
+FeatureScore=00
+
+DeviceData=DMR.DeviceData.WIA
+AddReg=DMR.NetReg,DMR.WIAReg
+CopyFiles=DMR.CpyFiles.WIAx64,32on64_CopyFiles,
+RegisterDlls=DMR.RegisterDlls.WIAx64
+ICMProfiles="sRGB Color Space Profile.icm"
+PortSelect=NO
+
+; *****************************************************************************************
+;           Common sections
+; *****************************************************************************************
+
+[DMR.Usb.6.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[DMR.Usb.6.ntamd64.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[DMR.Usb.5.2.ntamd64.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[DMR.Net.6.Services]
+Include=sti.inf
+Needs=STI.SerialSection.Services
+
+[DMR.Net.6.ntamd64.Services]
+Include=sti.inf
+Needs=STI.SerialSection.Services
+
+[DMR.Net.5.2.ntamd64.Services]
+Include=sti.inf
+Needs=STI.SerialSection.Services
+
+[DMR.DeviceData.WIA]
+TwainDS=""
+Server=local
+UI Class ID={4DB1AD10-3391-11D2-9A33-00C04FA36145}
+ProductFolder="HP MD"
+;tulip
+TulipCLSID={F378F573-778E-4FBE-850C-3D6F3BD4EBDB}
+
+[DMR.Events]
+; These are events that the device issues to trigger application launching.
+HP_U_CANCELBUTTON=%BTN_EVENT_CANCEL%,{97E53797-E7D7-4DCD-BBF3-F8A1FAC27D89},%LAUNCH_APPLICATION_CANCEL%
+HP_U_SCANBUTTON=%BUTTON_SCAN%,{D17CE158-10B9-4845-87C8-24FEF4A90EBD},%LAUNCH_APPLICATION_SCAN%
+
+[DMR.EvtReg]
+; This sets up the zero based index of the buttons (as returned by Tulip::GetButtonStatusEx() )
+
+HKR,Events\HP_U_SCANBUTTON,Index,0x10001,0 	; scan button should be index 0	
+HKR,Events\HP_U_SCANBUTTON,Mask,0x10001,0x8
+HKR,Events\HP_U_SCANBUTTON,FriendlyName,,%BUTTON_SCAN%
+;HKR,Events\HP_U_SCANBUTTON,DefaultHandler,,{D17CE158-10B9-4845-87C8-24FEF4A90EBD}
+;HKR,Events\HP_U_SCANBUTTON\{D17CE158-10B9-4845-87C8-24FEF4A90EBD},Cmdline,,C:\Program Files (x86)\HP\HP Scan Plus\bin\HPScan.exe /StiDevice %%1 /StiEvent %%2
+;HKR,Events\HP_U_SCANBUTTON\{D17CE158-10B9-4845-87C8-24FEF4A90EBD},Desc,,"HP Scan"
+;HKR,Events\HP_U_SCANBUTTON\{D17CE158-10B9-4845-87C8-24FEF4A90EBD},Icon,,"sti.dll,0"
+;HKR,Events\HP_U_SCANBUTTON\{D17CE158-10B9-4845-87C8-24FEF4A90EBD},Name,,"HP Scan"
+
+;cancel button must be index 1
+HKR,Events\HP_U_CANCELBUTTON,Index,0x10001,1 		
+HKR,Events\HP_U_CANCELBUTTON,Mask,0x10001,0x1
+HKR,Events\HP_U_CANCELBUTTON,FriendlyName,,%BUTTON_NAME_CANCEL%
+;HKR,Events\HP_U_CANCELBUTTON,DefaultHandler,,{97E53797-E7D7-4DCD-BBF3-F8A1FAC27D89}
+;HKR,Events\HP_U_CANCELBUTTON,Cmdline,,%%16426%%\HP\HP Scan Plus\bin\CancelEventHandler.exe /StiDevice %%1 /StiEvent %%2
+;HKR,Events\HP_U_CANCELBUTTON\{97E53797-E7D7-4DCD-BBF3-F8A1FAC27D89},Cmdline,,C:\Program Files (x86)\HP\HP Scan Plus\bin\CancelEventHandler.exe /StiDevice %%1 /StiEvent %%2
+;HKR,Events\HP_U_CANCELBUTTON\{97E53797-E7D7-4DCD-BBF3-F8A1FAC27D89},Desc,,"HP Scan cancel event handler"
+;HKR,Events\HP_U_CANCELBUTTON\{97E53797-E7D7-4DCD-BBF3-F8A1FAC27D89},Icon,,"sti.dll,0"
+;HKR,Events\HP_U_CANCELBUTTON\{97E53797-E7D7-4DCD-BBF3-F8A1FAC27D89}
+
+[DMR.WIAReg]
+HKR,,USDClass,,"{F6EC6C31-B8A7-42A3-8427-1848A40F5E36}"
+HKCR,CLSID\{F6EC6C31-B8A7-42A3-8427-1848A40F5E36},,,"Hewlett-Packard NG Minidriver"
+HKCR,CLSID\{F6EC6C31-B8A7-42A3-8427-1848A40F5E36}\InProcServer32,,,%11%\HPWia1Drv.dll
+HKCR,CLSID\{F6EC6C31-B8A7-42A3-8427-1848A40F5E36}\InProcServer32,ThreadingModel,,"Both"
+
+
+[DMR.WIAReg2]
+HKR,,USDClass,,"{F6EC6C31-B8A7-42A3-8427-1848A40F5E36}"
+HKCR,CLSID\{F6EC6C31-B8A7-42A3-8427-1848A40F5E36},,,"Hewlett-Packard NG Minidriver"
+HKCR,CLSID\{F6EC6C31-B8A7-42A3-8427-1848A40F5E36}\InProcServer32,,,%11%\HPWia2Drv.dll
+HKCR,CLSID\{F6EC6C31-B8A7-42A3-8427-1848A40F5E36}\InProcServer32,ThreadingModel,,"Both"
+
+[DMR.UsbReg]
+; This all depends on which kernel services you need
+; Hardware configuration is not known
+HKR,,HardwareConfig,1,1
+HKR,,DevLoader,,*NTKERN
+HKR,,NTMPDriver,,"usbscan.sys"
+;tulip
+HKR,DeviceData,TulipIOType,0x10001,1
+HKR,DeviceData,TulipDevNameType,0x10001,3
+; HKR,DeviceData,ISISDriverName,,hp3000s3.pxn
+
+[DMR.NetReg]
+; This all depends on which kernel services you need
+; Hardware configuration is not known
+HKR,,HardwareConfig,1,1
+HKR,,DevLoader,,*NTKERN
+HKR,,CreateFileName,,AUTO
+;tulip
+HKR,DeviceData,TulipIOType,0x10001,5
+HKR,DeviceData,TulipDevNameType,0x10001,3
+
+
+[DMR.RegisterDlls.WIA]
+11,,HPWia1Drv.dll,1
+;tulip
+11,,HPScanTEDrv.dll,1
+
+[DMR.RegisterDlls.WIA2]
+11,,HPWia2Drv.dll,1
+;tulip
+11,,HPScanTEDrv.dll,1
+
+[DMR.RegisterDlls.WIAx64]
+11,,HPWia1Drv.dll,1
+;tulip
+11,,HPScanTEDrv_x64.dll,1
+16425,,HPScanTEDrv.dll,1
+
+[DMR.RegisterDlls.WIA2x64]
+11,,HPWia2Drv.dll,1
+;tulip
+11,,HPScanTEDrv_x64.dll,1
+16425,,HPScanTEDrv.dll,1
+
+[DMR.CpyFiles.WIA]
+HPWia1Drv.dll
+HPScanDrvConfig.xml
+;tulip
+HPScanTEDrv.dll
+DiscoveryLibDyn.dll
+
+[DMR.CpyFiles.WIAx64]
+HPWia1Drv.dll
+HPScanDrvConfig.xml
+;tulip
+HPScanTEDrv_x64.dll
+DiscoveryLibDyn_x64.dll
+
+[DMR.CpyFiles.WIA2]
+HPScanDrvConfig.xml
+HPWia2Drv.dll
+;tulip
+HPScanTEDrv.dll
+DiscoveryLibDyn.dll
+
+[DMR.CpyFiles.WIA2x64]
+HPScanDrvConfig.xml
+HPWia2Drv.dll
+;tulip
+HPScanTEDrv_x64.dll
+DiscoveryLibDyn_x64.dll
+
+; Copy the 32 bit Tulip driver on 64 bit to the SysWOW64 directory and register it.
+[32on64_CopyFiles]
+HPScanDrvConfig.xml
+;tulip
+HPScanTEDrv.dll
+DiscoveryLibDyn.dll
+;tonemap
+; ;HP_ScanJet_Pro_3000_s3_(USB)_tonemap.txt
+; ;HP_ScanJet_Flow_7000_s3_(USB)_tonemap.txt
+[SourceDisksNames]
+1 = %CD%,,,
+2 = %CD%,,,drivers\scanner
+ 
+[SourceDisksNames.x86]
+1 = %CD%,,,
+2 = %CD%,,,drivers\scanner
+
+; This section is redundant to pass infverif test for Windows 10
+[SourceDisksFiles]
+HPWia1Drv.dll=2,x64
+HPWia2Drv.dll=2,x64
+HPScanDrvConfig.xml=1
+;tulip
+HPScanTEDrv.dll=2,x32
+DiscoveryLibDyn.dll=2,x32
+HPScanTEDrv_x64.dll=2,x64
+DiscoveryLibDyn_x64.dll=2,x64
+
+
+[SourceDisksFiles.x86]
+HPWia1Drv.dll=2,x32
+HPWia2Drv.dll=2,x32
+HPScanDrvConfig.xml=1
+;tulip
+HPScanTEDrv.dll=2,x32
+DiscoveryLibDyn.dll=2,x32
+
+[SourceDisksNames.amd64]
+1 = %CD%,,,
+2 = %CD%,,,drivers\scanner
+
+[SourceDisksFiles.amd64]
+HPWia1Drv.dll=2,x64
+HPWia2Drv.dll=2,x64
+HPScanDrvConfig.xml=1
+;tulip
+HPScanTEDrv.dll=2,x32
+DiscoveryLibDyn.dll=2,x32
+HPScanTEDrv_x64.dll=2,x64
+DiscoveryLibDyn_x64.dll=2,x64
+[Strings]
+; Always put strings down here so they can be easily localized to
+; other languages.
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="Scan button press"
+BUTTON_NAME_CANCEL="Cancel button"
+BTN_EVENT_CANCEL="Cancel button press"
+LAUNCH_APPLICATION_SCAN="HP Scan"
+LAUNCH_APPLICATION_CANCEL="HP Scan cancel event handler"
+
+
+; English Specific
+[Strings.0409]         ;English
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="Scan button press"
+BUTTON_NAME_CANCEL="Cancel button"
+LAUNCH_APPLICATION_SCAN="HP Scan"
+BTN_EVENT_CANCEL="Cancel button press"
+LAUNCH_APPLICATION_CANCEL="HP Scan cancel event handler"
+
+; French Specific 
+[Strings.000C] ; French
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="Touche Numériser"
+
+BUTTON_NAME_CANCEL="bouton Annuler"
+BTN_EVENT_CANCEL="Touche Copier"
+LAUNCH_APPLICATION_SCAN="Logiciel de Numérisation HP"
+LAUNCH_APPLICATION_CANCEL="Logiciel de Numérisation HP"
+
+; Italian Specific 
+[Strings.0010]  ; Italian
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="Pressione del pulsante Scansione"
+BUTTON_NAME_CANCEL="pulsante Annulla"
+BTN_EVENT_CANCEL="Pressione pulsante Copia"
+LAUNCH_APPLICATION_SCAN="Software Scansione HP"
+LAUNCH_APPLICATION_CANCEL="Software Scansione HP"
+
+; German Specific 
+[Strings.0007] ; German
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="Taste "Scannen" gedrückt"
+ BTN_EVENT_CANCEL="Betätigung der Taste 'Kopieren'"
+LAUNCH_APPLICATION_SCAN="HP Scansoftware"
+LAUNCH_APPLICATION_CANCEL="HP Scansoftware"
+BUTTON_NAME_CANCEL="Abbrechen-Schaltfläche"
+  
+
+; Spanish Specific 
+[Strings.000A] ; Spanish
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="Pulsar el botón Escanear"
+BTN_EVENT_CANCEL="Pulsación del botón Copiar"
+LAUNCH_APPLICATION_SCAN="Software de Escaneo HP"
+LAUNCH_APPLICATION_CANCEL="Software de Escaneo HP"
+BUTTON_NAME_CANCEL="botón Cancelar"
+ 
+
+; Portuguese Specific 
+[Strings.0016] ; Portuguese
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="Pressionamento do botão Digitalizar"
+BTN_EVENT_CANCEL="Pressionar botão Copiar"
+LAUNCH_APPLICATION_SCAN="Software de Digitalização HP"
+LAUNCH_APPLICATION_CANCEL="Software de Digitalização HP"
+BUTTON_NAME_CANCEL="botão Cancelar"
+
+; Dutch Specific 
+[Strings.0013] ; Dutch
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="Gedrukt op de knop Scannen"
+BTN_EVENT_CANCEL="Druk op de knop Kopiëren"
+LAUNCH_APPLICATION_SCAN="HP-scansoftware"
+LAUNCH_APPLICATION_CANCEL="HP-scansoftware"
+BUTTON_NAME_CANCEL="Cancel -knop"
+
+; Russian Specific 
+[Strings.0019] ; Russian
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="Нажатие кнопки "Сканировать""
+BTN_EVENT_CANCEL="Íàæàòèå Êíîïêà "Êîïèðîâàòü""
+LAUNCH_APPLICATION_SCAN="ïðîãðàììà Ñêàíèðîâàíèÿ HP"
+LAUNCH_APPLICATION_CANCEL="ïðîãðàììà Ñêàíèðîâàíèÿ HP"
+BUTTON_NAME_CANCEL="Êíîïêà "Êîïèðîâàòü""
+;need to find string
+
+; Traditional Chinese Specific 
+[Strings.0404] ; Traditional Chinese
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="按下「掃瞄」按鈕"
+BTN_EVENT_CANCEL="«ö¤U¼v¦L«ö¶s"
+LAUNCH_APPLICATION_SCAN="HP ±½ºË³nÅé"
+LAUNCH_APPLICATION_CANCEL="HP ±½ºË³nÅé"
+BUTTON_NAME_CANCEL="¼v¦L«ö¶s"
+
+; Simplified Chinese Specific
+[Strings.0804] ; Chinese
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="按下“扫描”按钮"
+BTN_EVENT_CANCEL="¸´Ó¡°´Å¥°´ÏÂ"
+LAUNCH_APPLICATION_SCAN="hp É¨ÃèÈí¼þ"
+LAUNCH_APPLICATION_CANCEL="hp É¨ÃèÈí¼þ"
+BUTTON_NAME_CANCEL="¸´Ó¡°´Å¥"
+
+; Korean Specific 
+[Strings.0012] ; Korean
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="스캔 버튼 누르기"
+BTN_EVENT_CANCEL="º¹»ç ´ÜÃß ´©¸§"
+LAUNCH_APPLICATION_SCAN="HP ½ºÄ³´× ¼ÒÇÁÆ®¿þ¾î"
+LAUNCH_APPLICATION_CANCEL="HP ½ºÄ³´× ¼ÒÇÁÆ®¿þ¾î"
+BUTTON_NAME_CANCEL="º¹»ç ´ÜÃß"
+
+; Danish Specific 
+[Strings.0006] ; Danish
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="Du har trykket på knappen Scan til"
+BTN_EVENT_CANCEL="Tryk på knappen Kopier"
+LAUNCH_APPLICATION_SCAN="Programmet HP Scanning"
+LAUNCH_APPLICATION_CANCEL="Programmet HP Scanning"
+BUTTON_NAME_CANCEL="Knappen Annuller"
+
+; Finnish Specific 
+[Strings.000B] ; Finnish
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="Skannaa-painikkeen painaminen"
+BTN_EVENT_CANCEL="Kopioi-painikkeen painallus"
+LAUNCH_APPLICATION_SCAN="HP-n skannaus"
+LAUNCH_APPLICATION_CANCEL="HP-n skannaus"
+BUTTON_NAME_CANCEL="Peruuta-painike"
+
+; Norwegian Specific 
+[Strings.0014] ; Norwegian
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="Trykket på Skann-knappen"
+BTN_EVENT_CANCEL="Kopier-knapp, trykk på"
+LAUNCH_APPLICATION_SCAN="HP Skanning-programvare"
+LAUNCH_APPLICATION_CANCEL="HP Skanning-programvare"
+BUTTON_NAME_CANCEL="Avbryt-knapp"
+; Swedish Specific 
+[Strings.001D] ; Swedish
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="Tryckning på knappen Skanna"
+BTN_EVENT_CANCEL="Tryck på knappen Kopiera"
+LAUNCH_APPLICATION_SCAN="HP Skanning programvara"
+LAUNCH_APPLICATION_CANCEL="HP Skanning programvara"
+BUTTON_NAME_CANCEL="Knappen Avbryt"
+
+; Czech Specific 
+[Strings.0005] ; Czech
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="Stisknutí tlačítka Sejmout do"
+BTN_EVENT_CANCEL="Stisknutí tlaèítka Kopírovat"
+LAUNCH_APPLICATION_SCAN="Software Skenování HP"
+LAUNCH_APPLICATION_CANCEL="Software Skenování HP"
+BUTTON_NAME_CANCEL="Tlacítko Storno"
+
+; Greek Specific 
+[Strings.0008] ; Greek
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="Πάτημα κουμπιού 'Σάρωση'"
+BTN_EVENT_CANCEL="ÐÜôçìá êïõìðéïý ÁíôéãñáöÞ"
+LAUNCH_APPLICATION_SCAN="ëïãéóìéêü ÓÜñùóç HP"
+LAUNCH_APPLICATION_CANCEL="ëïãéóìéêü ÓÜñùóç HP"
+BUTTON_NAME_CANCEL="Êïõìðß ÁíôéãñáöÞ"
+
+; Hungarian Specific 
+[Strings.000E] ; Hungarian
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="Beolvasás gomb megnyomása"
+BTN_EVENT_CANCEL="Másolás gomb lenyomása"
+LAUNCH_APPLICATION_SCAN="HP Lapolvasás szoftver"
+LAUNCH_APPLICATION_CANCEL="HP Lapolvasás szoftver"
+BUTTON_NAME_CANCEL="Mégse gomb"
+
+; Polish Specific 
+[Strings.0015] ; Polish
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="Naciśnięcie przycisku Skanuj"
+BTN_EVENT_CANCEL="Naciœniêcie przycisku Kopiuj"
+LAUNCH_APPLICATION_SCAN="oprogramowanie Skanowanie HP"
+LAUNCH_APPLICATION_CANCEL="oprogramowanie Skanowanie HP"
+BUTTON_NAME_CANCEL="przycisk Anuluj"
+
+; Turkish Specific 
+[Strings.001F] ;Turkish
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="Tara düğmesine basmak"
+BTN_EVENT_CANCEL="Kopyala düðmesi basýmý"
+LAUNCH_APPLICATION_SCAN="HP Tarama yazýlýmý"
+LAUNCH_APPLICATION_CANCEL="HP Tarama yazýlýmý"
+BUTTON_NAME_CANCEL="Iptal dügmesi"
+
+; Japanese Specific 
+[Strings.0411] ; Japanese
+Provider="HP"
+Mfg="HP"
+CD="hp cd"
+BUTTON_SCAN="[スキャン] ボタンを押す"
+
+BUTTON_NAME_CANCEL="Cancel button"
+BTN_EVENT_CANCEL="Cancel button press"
+LAUNCH_APPLICATION_CANCEL="HP Scan cancel event handler"
+LAUNCH_APPLICATION_SCAN="HP Scan"

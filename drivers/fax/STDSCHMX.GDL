@@ -1,0 +1,44 @@
+*%  stdschx.gdl
+*%  this file defines the parts of the schema that are dependent on
+*%  preprocessor defines.
+
+*%  Since this header relies on passed in Preprocessor defines, it must not be PreCompiled.
+*PreCompiled:  FALSE
+
+*Include: "stdschem.gdl"
+
+*Ifdef:   WINNT_50
+    *%  and above ...
+
+*Template:  PRINTRATEUNIT
+{
+    *Name: "*PrintRateUnit"
+    *Type:  ATTRIBUTE
+    *ValueType:  EDT_PRINTRATEUNIT
+}
+*Template:  PREDEFINED_PAPERSIZE_OPTION_2  *%  Additional papersizes
+    *%  for NT5.0
+{
+    *Inherits: V_PREDEFINED_PAPERSIZE_OPTION
+    *Instances:  (        
+        A6,
+        PENV_10_ROTATED
+        )
+}
+
+*Template:  ROOT_1
+{
+    *Inherits: ROOT
+    *Members:  (PRINTRATEUNIT)
+    *Production: SATISFY_ALL
+    {
+        *Production: EXACTLY_ONE
+        {
+            *Production: SATISFY_ALL
+            {               
+                *Member:  PRINTRATEUNIT {*Occurs:  1 }
+            }
+        }
+    }
+}
+*Endif: WINNT_50
